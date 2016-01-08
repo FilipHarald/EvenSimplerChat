@@ -80,6 +80,10 @@ public class GUIChat
 		frame.add(pane);
 	}
 
+	/**
+	 * Displays the specified message in the GUI.
+	 * @param message
+	 */
 	public void displayMessage(Message message) {
 		lstMsg.append(message.getText() + "\n");
 	}

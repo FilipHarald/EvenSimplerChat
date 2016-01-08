@@ -11,6 +11,11 @@ import java.net.SocketTimeoutException;
 import gui.*;
 import message.Message;
 
+/**
+ * Controller for coordinating in- and outputstreams with GUI
+ * @author Filip
+ *
+ */
 public class ClientController implements Controller{
 
 	private String serverHost;
@@ -22,8 +27,15 @@ public class ClientController implements Controller{
 	
 	private GUIChat gui;
 	
+	/**
+	 * Creates a ClientController
+	 * 
+	 * @param gui
+	 * @param serverHost
+	 * @param serverPort
+	 * @param userName
+	 */
 	public ClientController(GUIChat gui, String serverHost, int serverPort, String userName) {
-		super();
 		this.serverHost = serverHost;
 		this.serverPort = serverPort;
 		this.userName = userName;
@@ -54,10 +66,17 @@ public class ClientController implements Controller{
 
 		private ObjectInputStream inputStream;
 
+		/**
+		 * @param inputStream
+		 */
 		public MessageListener(ObjectInputStream inputStream) {
 			this.inputStream = inputStream;
 		}
 
+		/**
+		 * @return
+		 * @throws IOException
+		 */
 		public Message getMessage() throws IOException{
 			try {
 				Object obj = inputStream.readObject();
